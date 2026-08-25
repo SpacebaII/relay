@@ -6,7 +6,7 @@ Relay is designed for Cloudflare's Workers Free plan and D1 Free plan. Static as
 
 The public portfolio deployment must keep `AI_MODE` set to `demo`. This prevents API spend even if the public endpoint receives unexpected traffic. Never place an API key in `wrangler.jsonc`, client code, GitHub Actions, or a `.dev.vars` file committed to Git.
 
-## One-time setup
+## Reproducing the deployment
 
 1. Install dependencies and authenticate Wrangler:
 
@@ -15,13 +15,13 @@ The public portfolio deployment must keep `AI_MODE` set to `demo`. This prevents
    npx wrangler login
    ```
 
-2. Create the free D1 database:
+2. Create a free D1 database in your own Cloudflare account:
 
    ```bash
    npx wrangler d1 create relay-db
    ```
 
-3. Copy the returned `database_id` into `wrangler.jsonc`, replacing `REPLACE_WITH_D1_DATABASE_ID`.
+3. Copy the returned `database_id` into `wrangler.jsonc`. The checked-in ID belongs to the published Relay deployment and will not be accessible from another Cloudflare account.
 
 4. Apply the schema remotely:
 
@@ -42,7 +42,18 @@ The public portfolio deployment must keep `AI_MODE` set to `demo`. This prevents
    npm run deploy
    ```
 
-Wrangler returns a `*.workers.dev` URL. Open it, reset the demo, complete an approval, and confirm that no email is sent.
+Wrangler returns a `*.workers.dev` URL. Open it, add a synthetic lead, complete an approval, and confirm that no email is sent.
+
+## Published environment
+
+- URL: [relay-lead-ops.spacebaii-portfolio.workers.dev](https://relay-lead-ops.spacebaii-portfolio.workers.dev)
+- Worker: `relay-lead-ops`
+- Storage: D1 in Cloudflare's WNAM region
+- Intelligence mode: `demo`
+- Model secrets: none
+- Custom domain: none
+
+The public form writes to a shared demonstration database. Use synthetic information only.
 
 ## Optional private OpenAI evaluation
 
@@ -61,4 +72,3 @@ Cloudflare retains Worker versions. If smoke testing finds a regression, use the
 ## Free-tier maintenance
 
 Free-tier terms can change. Recheck current Worker and D1 limits before each public launch. Relay fails when a free limit is exhausted; the checked-in configuration does not subscribe to paid usage.
-

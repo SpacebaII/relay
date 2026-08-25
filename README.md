@@ -2,6 +2,8 @@
 
 **AI-assisted lead operations with an explicit human approval boundary.**
 
+[View the live demo](https://relay-lead-ops.spacebaii-portfolio.workers.dev) · [Read the case study](docs/case-study.md)
+
 Relay turns an unstructured inquiry into a transparent opportunity assessment and a personalized follow-up draft. A person reviews the recommendation, approves the response, and can inspect the complete audit trail. The MVP never sends email.
 
 ![Relay dashboard showing a classified lead, response draft, and audit trail](docs/images/relay-dashboard.png)
@@ -136,7 +138,7 @@ docs/                 product, architecture, deployment, and case-study evidence
 
 ## Deployment
 
-Relay is prepared for a free `*.workers.dev` deployment backed by D1. The deployment requires a Cloudflare account connection and a database ID, but no paid plan or custom domain. Follow [docs/deployment.md](docs/deployment.md).
+Relay is live on Cloudflare Workers at [relay-lead-ops.spacebaii-portfolio.workers.dev](https://relay-lead-ops.spacebaii-portfolio.workers.dev). The public deployment uses D1 and deterministic demo intelligence. It requires no paid plan, custom domain, model key, or live model request. Follow [docs/deployment.md](docs/deployment.md) to reproduce the deployment.
 
 ## Roadmap
 

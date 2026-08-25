@@ -4,6 +4,7 @@
 
 - Live application: [relay-lead-ops.spacebaii-portfolio.workers.dev](https://relay-lead-ops.spacebaii-portfolio.workers.dev)
 - Source repository: [github.com/SpacebaII/relay](https://github.com/SpacebaII/relay)
+- Continuous integration: [GitHub Actions CI](https://github.com/SpacebaII/relay/actions/workflows/ci.yml)
 - Release: pending publication of `v0.1.0`
 - Case study: [Building Relay](case-study.md)
 - Launch drafts: [LinkedIn and DEV content](launch-content.md)

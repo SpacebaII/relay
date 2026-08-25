@@ -1,5 +1,7 @@
 # Relay
 
+[![CI](https://github.com/SpacebaII/relay/actions/workflows/ci.yml/badge.svg)](https://github.com/SpacebaII/relay/actions/workflows/ci.yml)
+
 **AI-assisted lead operations with an explicit human approval boundary.**
 
 [View the live demo](https://relay-lead-ops.spacebaii-portfolio.workers.dev) · [Read the case study](docs/case-study.md)

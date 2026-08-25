@@ -68,3 +68,28 @@ A newly persisted lead did not appear in the React queue. The client update path
 - Structured `400`, `404`, and `409` responses were verified against the public API.
 - Security headers and `Cache-Control: no-store` were verified over HTTPS.
 - A 390-pixel production viewport had no horizontal overflow.
+
+## 2026-08-25: Interface credibility pass
+
+### Problem
+
+The first public interface worked, but its dark sidebar, bright accent, oversized slogan, repeated cards, and decorative navigation made the product look broader and more polished than the implemented workflow justified. The sample queue was also too evenly distributed to resemble daily operational work.
+
+### Decisions
+
+- Replaced the sidebar and decorative routes with a compact utility header and one review workbench.
+- Removed glowing status treatments, generic icons, avatar initials, and repeated reassurance labels.
+- Made search and status filters functional instead of using navigation as decoration.
+- Added record identifiers, source details, timestamps, engine version, uneven queue states, and a numbered decision ledger.
+- Kept one obvious next action for the selected record and one concise demo boundary disclosure.
+
+### Validation evidence
+
+- Three end-to-end workflows cover review, lead creation, and real queue filtering.
+- Search and filter controls are locked while a reset or workflow mutation is in flight, preventing stale responses from overwriting a reviewer action.
+- Desktop and 390-pixel mobile visual checks confirmed the new hierarchy and no horizontal overflow.
+- Public screenshots now show the same operational interface reviewers use in the live demo.
+
+### Lesson
+
+Credibility comes from honest constraints and useful detail. Removing features the product did not have made the implemented workflow feel more complete, not less.

@@ -78,7 +78,7 @@ describe("RelayService", () => {
   it("seeds synthetic demo data at multiple workflow stages", async () => {
     const { service } = harness();
     const leads = await service.resetDemo();
-    expect(leads).toHaveLength(3);
-    expect(leads.map((lead) => lead.status).sort()).toEqual(["classified", "drafted", "received"]);
+    expect(leads).toHaveLength(5);
+    expect(leads.map((lead) => lead.status).sort()).toEqual(["classified", "classified", "drafted", "received", "received"]);
   });
 });

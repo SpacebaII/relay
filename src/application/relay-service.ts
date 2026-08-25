@@ -103,6 +103,20 @@ export class RelayService {
         source: "LinkedIn",
         message: "Curious whether you offer a small website refresh. No firm timeline yet and I am gathering ideas.",
       },
+      {
+        name: "Keisha Grant",
+        email: "keisha@grant-field.example",
+        company: "Grant & Field",
+        source: "Email",
+        message: "Following up after last Thursday's workshop. We have client intake in two spreadsheets and a shared inbox. Not sure whether the first step is cleanup or automation. Could someone look at the process before month-end?",
+      },
+      {
+        name: "Omar Haddad",
+        email: "omar@meridian-fabrication.example",
+        company: "Meridian Fabrication",
+        source: "Event",
+        message: "Met at the operations breakfast. We need a small internal tool to track quoting handoffs between sales and production. Six users to start; budget has not been approved yet.",
+      },
     ];
 
     const leads: Lead[] = [];
@@ -110,6 +124,7 @@ export class RelayService {
     await this.classify(leads[0].id);
     await this.createDraft(leads[0].id);
     await this.classify(leads[1].id);
+    await this.classify(leads[4].id);
     return this.list();
   }
 
@@ -129,4 +144,3 @@ export class RelayService {
     return { id: this.id(), leadId: lead.id, type, actor, detail, createdAt: now };
   }
 }
-

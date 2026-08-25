@@ -7,7 +7,7 @@ await mkdir(outputDir, { recursive: true });
 
 async function prepare(page) {
   await page.goto("http://127.0.0.1:5173/");
-  await page.getByRole("button", { name: "Reset demo" }).click();
+  await page.getByRole("button", { name: "Reload sample queue" }).click();
   await page.getByRole("button", { name: /Maya Chen/ }).click();
   await page.getByRole("heading", { name: "Maya Chen" }).waitFor();
 }

@@ -16,7 +16,7 @@ function rating(value: number): Rating {
 }
 
 export class DemoIntelligence implements LeadIntelligence {
-  readonly name = "Transparent demo rules";
+  readonly name = "demo-rules-v1";
 
   async classify(lead: Lead): Promise<Classification> {
     const text = `${lead.company} ${lead.message}`.toLowerCase();

@@ -66,6 +66,14 @@ I disabled lead selection while a workflow request is active, then repeated both
 
 **Lesson:** one green run is evidence, not certainty. Repetition can expose timing failures, and test concurrency must match fixture isolation.
 
+## Development challenge 6: The interface implied a larger product than the code delivered
+
+The original UI used familiar SaaS signals: a dark navigation rail, a bright accent, rounded metric cards, reassuring badges, and links to sections that were not real product areas. Each choice was defensible in isolation, but together they made the demo feel generated and overstated its depth.
+
+I rebuilt the screen around the actual reviewer job. The queue, selected record, and decision history now share one dense workbench. Search and status filters perform real queries against the loaded records. Operational identifiers, timestamps, source data, model version, uneven sample states, and a single next action replace decorative chrome.
+
+**Lesson:** visual polish is not the same as product credibility. A portfolio project earns trust when every visible control maps to implemented behavior and the interface exposes the practical details of the work.
+
 ## Reliability and safety
 
 - Legal state transitions are enforced in the domain layer.

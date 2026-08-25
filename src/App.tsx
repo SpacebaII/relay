@@ -130,7 +130,7 @@ export function App() {
               <div className="empty-state"><div className="empty-icon"><Icon name="spark" /></div><h3>Your lead queue is clear</h3><p>Load synthetic examples to explore the complete workflow without using model tokens.</p><button className="button primary" onClick={() => void run(api.resetDemo)} disabled={busy}>Load sample leads</button></div>
             ) : (
               <div className="lead-list">
-                {leads.map((lead) => <LeadRow key={lead.id} lead={lead} selected={lead.id === selected?.id} onClick={() => setSelectedId(lead.id)} />)}
+                {leads.map((lead) => <LeadRow key={lead.id} lead={lead} selected={lead.id === selected?.id} disabled={busy} onClick={() => setSelectedId(lead.id)} />)}
               </div>
             )}
           </div>
@@ -183,8 +183,8 @@ function Stat({ label, value, detail, accent = false }: { label: string; value: 
   return <article className={`stat-card ${accent ? "accent" : ""}`}><p>{label}</p><strong>{value.toString().padStart(2, "0")}</strong><span>{detail}</span></article>;
 }
 
-function LeadRow({ lead, selected, onClick }: { lead: Lead; selected: boolean; onClick: () => void }) {
-  return <button className={`lead-row ${selected ? "selected" : ""}`} onClick={onClick}>
+function LeadRow({ lead, selected, disabled, onClick }: { lead: Lead; selected: boolean; disabled: boolean; onClick: () => void }) {
+  return <button className={`lead-row ${selected ? "selected" : ""}`} disabled={disabled} onClick={onClick}>
     <span className="avatar small">{initials(lead.name)}</span><span className="lead-copy"><span><strong>{lead.name}</strong><StatusPill status={lead.status} /></span><small>{lead.company}</small><p>{lead.message}</p></span><span className="score">{lead.classification?.score ?? "—"}</span>
   </button>;
 }

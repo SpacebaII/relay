@@ -8,6 +8,10 @@ Relay turns an unstructured inquiry into a transparent opportunity assessment an
 
 ![Relay dashboard showing a classified lead, response draft, and audit trail](docs/images/relay-dashboard.png)
 
+<p align="center">
+  <img src="docs/images/relay-mobile.png" width="390" alt="Relay mobile workflow showing the lead queue, assessment, draft, and audit trail">
+</p>
+
 ## Why it exists
 
 Small agencies and consultancies often manage new business from disconnected forms and inboxes. Leads get inconsistent attention, response times stretch, and promising work can be missed. Relay explores a practical alternative: automate the repetitive interpretation and drafting work while keeping judgment and external actions with a human.

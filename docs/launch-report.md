@@ -12,7 +12,7 @@
 
 - Platform: Cloudflare Workers and D1
 - Worker: `relay-lead-ops`
-- Worker version: `ff3ea7db-8d04-491b-9755-dc40dca9efa1`
+- Worker version: `ef1c8683-6542-4f98-acc3-3406d52ab973`
 - D1 location: WNAM
 - Intelligence mode: deterministic `demo`
 - OpenAI secret binding: absent
@@ -22,6 +22,7 @@
 
 - Six unit and application tests passed.
 - Two Chromium end-to-end tests passed locally.
+- The timing fix passed five consecutive two-test browser suites, followed by a three-repeat serial verification.
 - Line coverage reached 95.65 percent.
 - The production workflow reached `approved` with four persisted audit events.
 - Desktop and 390-pixel mobile layouts were verified without horizontal overflow.
@@ -36,6 +37,8 @@
 2. TLS certificate provisioning briefly returned a handshake error. Verification waited for a successful HTTPS response.
 3. The public form still described storage as local. The disclosure was corrected to identify the shared synthetic-data demo.
 4. Handwritten Worker environment types could drift from deployment configuration. Wrangler-generated bindings and a CI drift check replaced them.
+5. A final browser rerun exposed a reset-and-select race. Lead rows are now disabled while workflow requests are active, and five consecutive two-test suites passed after the fix.
+6. Parallel stress reruns collided because all browser workers shared one mutable local D1 database. The suite now uses one worker explicitly, matching its fixture isolation.
 
 ## Remaining roadmap
 

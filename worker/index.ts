@@ -4,18 +4,15 @@ import { D1LeadRepository } from "./d1-repository";
 import { DemoIntelligence } from "./demo-intelligence";
 import { OpenAIIntelligence } from "./openai-intelligence";
 
-interface Env {
-  DB: D1Database;
-  AI_MODE?: string;
+type RelayEnv = Env & {
   OPENAI_API_KEY?: string;
-  OPENAI_MODEL?: string;
-}
+};
 
 function json(data: unknown, status = 200): Response {
   return Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
 }
 
-function service(env: Env): RelayService {
+function service(env: RelayEnv): RelayService {
   const intelligence =
     env.AI_MODE === "openai" && env.OPENAI_API_KEY
       ? new OpenAIIntelligence(env.OPENAI_API_KEY, env.OPENAI_MODEL || "gpt-5-nano")
@@ -51,9 +48,12 @@ export default {
         const status = error.code === "NOT_FOUND" ? 404 : error.code === "DUPLICATE_LEAD" ? 409 : 400;
         return json({ error: { code: error.code, message: error.message } }, status);
       }
-      console.error("Relay request failed", error instanceof Error ? error.message : "Unknown error");
+      console.error(JSON.stringify({
+        message: "Relay request failed",
+        error: error instanceof Error ? error.message : "Unknown error",
+        path: url.pathname,
+      }));
       return json({ error: { code: "INTERNAL_ERROR", message: "Relay could not complete the request." } }, 500);
     }
   },
-} satisfies ExportedHandler<Env>;
-
+} satisfies ExportedHandler<RelayEnv>;

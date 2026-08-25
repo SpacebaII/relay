@@ -82,6 +82,12 @@ export function createLead(input: LeadInput, now: string, id: string): Lead {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new DomainError("INVALID_EMAIL", "Enter a valid email address.");
   }
+  if (name.length > 80 || email.length > 254 || company.length > 120 || message.length > 2000) {
+    throw new DomainError("INVALID_LEAD", "Lead details exceed the supported demo limits.");
+  }
+  if ((input.source?.trim().length ?? 0) > 40) {
+    throw new DomainError("INVALID_LEAD", "Lead source exceeds the supported demo limit.");
+  }
 
   return {
     id,
@@ -107,4 +113,3 @@ export function requireStatus(lead: Lead, expected: LeadStatus): void {
     );
   }
 }
-

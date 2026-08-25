@@ -11,12 +11,14 @@
     "db:local": "wrangler d1 execute relay-db --local --file=./schema.sql",
     "db:remote": "wrangler d1 execute relay-db --remote --file=./schema.sql",
     "typecheck": "tsc -b --pretty false",
+    "types:worker": "wrangler types worker-configuration.d.ts --include-runtime false --strict-vars false",
+    "types:check": "wrangler types worker-configuration.d.ts --include-runtime false --strict-vars false --check",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "lint": "eslint .",
-    "check": "npm run lint && npm run typecheck && npm run test -- --coverage && npm run build"
+    "check": "npm run lint && npm run types:check && npm run typecheck && npm run test -- --coverage && npm run build"
   },
   "engines": {
     "node": ">=22"

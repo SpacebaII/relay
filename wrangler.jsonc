@@ -3,6 +3,7 @@
   "name": "relay-lead-ops",
   "main": "./worker/index.ts",
   "compatibility_date": "2026-08-24",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "not_found_handling": "single-page-application",
     "run_worker_first": ["/api/*"]
@@ -11,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "relay-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "cd950f16-c43a-4e35-ab4e-a30073a0216c",
       "migrations_dir": "migrations"
     }
   ],
@@ -20,7 +21,14 @@
     "OPENAI_MODEL": "gpt-5-nano"
   },
   "observability": {
-    "enabled": true
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
   }
 }
-

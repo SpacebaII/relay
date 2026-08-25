@@ -62,6 +62,13 @@ describe("RelayService", () => {
     });
   });
 
+  it("rejects input that exceeds the public demo limits", async () => {
+    const { service } = harness();
+    await expect(service.receive({ ...input, message: "x".repeat(2001) })).rejects.toMatchObject<Partial<DomainError>>({
+      code: "INVALID_LEAD",
+    });
+  });
+
   it("prevents actions from skipping workflow stages", async () => {
     const { service } = harness();
     const lead = await service.receive(input);
@@ -75,4 +82,3 @@ describe("RelayService", () => {
     expect(leads.map((lead) => lead.status).sort()).toEqual(["classified", "drafted", "received"]);
   });
 });
-

@@ -4,7 +4,7 @@
 
 **AI-assisted lead operations with an explicit human approval boundary.**
 
-[View the live demo](https://relay-lead-ops.spacebaii-portfolio.workers.dev) · [Read the case study](docs/case-study.md)
+[View the live demo](https://relay-lead-ops.spacebaii-portfolio.workers.dev) · [Read the case study](docs/case-study.md) · [View v0.1.0](https://github.com/SpacebaII/relay/releases/tag/v0.1.0)
 
 Relay turns an unstructured inquiry into a transparent opportunity assessment and a personalized follow-up draft. A person reviews the recommendation, approves the response, and can inspect the complete audit trail. The MVP never sends email.
 

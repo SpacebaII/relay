@@ -8,6 +8,16 @@
 
 Relay turns an unstructured inquiry into a transparent opportunity assessment and a personalized follow-up draft. A person reviews the recommendation, approves the response, and can inspect the complete audit trail. The MVP never sends email.
 
+## Evidence at a glance
+
+| Concern | Implemented evidence |
+| --- | --- |
+| Accountable AI | Model output is a reviewable assessment or draft; approval is a required domain state and the public demo has no external side effects |
+| Reproducibility | One-click synthetic seed data and deterministic intelligence make the complete workflow usable without an API key |
+| Reliability | Domain and application coverage thresholds, Playwright acceptance tests, linting, type checks, builds, and CI |
+| Security and cost | Server-only model credentials, strict structured output, disabled response storage, bounded output, and no live model calls in the public deployment |
+| Production proof | Deployed Worker and D1 workflow with documented validation, security-header, duplicate, mobile, and audit-trail checks |
+
 ![Relay dashboard showing a classified lead, response draft, and audit trail](docs/images/relay-dashboard.png)
 
 <p align="center">
